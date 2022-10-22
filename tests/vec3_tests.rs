@@ -89,7 +89,7 @@ fn vec3_div_f64() {
     let scalar: f64 = 2.0;
 
     let vec_sol = Vec3::new(0.5, 1.0, 1.5);
-    
+
     assert_eq!(vec / scalar, vec_sol);
 }
 
@@ -114,7 +114,7 @@ fn vec3_length() {
 #[test]
 fn vec3_neg() {
     let vec = Vec3::new(1.0, 2.0, 3.0);
-    
+
     let vec_sol = Vec3::new(-1.0, -2.0, -3.0);
 
     assert_eq!(-vec, vec_sol);

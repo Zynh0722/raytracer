@@ -1,6 +1,6 @@
+use raytracer::Point3;
 use raytracer::Ray;
 use raytracer::Vec3;
-use raytracer::Point3;
 
 fn make_ray() -> Ray {
     let origin = Point3::null();
