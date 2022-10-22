@@ -4,4 +4,4 @@ mod color;
 pub use vec3::Vec3;
 pub use color::Color;
 
-pub type Point = Vec3;
+pub type Point3 = Vec3;
