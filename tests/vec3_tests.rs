@@ -53,6 +53,28 @@ fn test_vec3_sub_assign() {
 }
 
 #[test]
+fn test_vec3_mul_vec3() {
+    let vec_a = Vec3::new(1.0, 2.0, 3.0);
+    let vec_b = Vec3::new(3.0, 2.0, 1.0);
+
+    let vec_sol = Vec3::new(3.0, 4.0, 3.0);
+
+    assert_eq!(vec_a * vec_b, vec_sol);
+}
+
+#[test]
+fn test_vec3_mul_f64() {
+    let vec_a = Vec3::new(1.0, 2.0, 3.0);
+    let scalar = 3.0;
+
+    let vec_sol = Vec3::new(3.0, 6.0, 9.0);
+
+    assert_eq!(vec_a * scalar, vec_sol);
+    // Test for communative
+    assert_eq!(scalar * vec_a, vec_sol);
+}
+
+#[test]
 fn test_vec3_length_squared() {
     let unit_vec = Vec3::new(1.0, 0.0, 0.0);
     let vec = Vec3::new(0.0, 4.0, 3.0);
