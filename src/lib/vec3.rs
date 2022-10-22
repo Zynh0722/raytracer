@@ -40,8 +40,8 @@ impl Vec3 {
         *self = self.normalized();
     }
 
-    pub fn normalized(self) -> Self {
-        self / self.length()
+    pub fn normalized(&self) -> Self {
+        *self / self.length()
     }
 }
 
