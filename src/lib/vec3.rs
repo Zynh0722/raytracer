@@ -17,6 +17,28 @@ impl Vec3 {
     pub fn length_squared(&self) -> f64 {
         self.x*self.x + self.y*self.y + self.z*self.z
     }
+
+    pub fn cross(self, other: Self) -> Self {
+        Self::new(
+            self.y*other.z - self.z*other.y,
+            self.z*other.x - self.x*other.z,
+            self.x*other.y - self.y*other.x,
+        )
+    }
+
+    pub fn dot(self, other: Self) -> f64 {
+        self.x * other.x +
+        self.y * other.y +
+        self.z * other.z
+    }
+
+    pub fn normalize(&mut self) {
+        *self = self.normalized();
+    }
+
+    pub fn normalized(self) -> Self {
+        self / self.length()
+    }
 }
 
 use std::ops;
@@ -24,7 +46,7 @@ use std::ops;
 impl ops::Add for Vec3 {
     type Output = Self;
     
-    fn add(self, other: Self) -> Self {
+    fn add(self, other: Self) -> Self::Output {
         Self::new(
             self.x + other.x, 
             self.y + other.y, 
@@ -46,7 +68,7 @@ impl ops::AddAssign for Vec3 {
 impl ops::Sub for Vec3 {
     type Output = Self;
 
-    fn sub(self, other: Self) -> Self {
+    fn sub(self, other: Self) -> Self::Output {
         Self::new(
             self.x - other.x,
             self.y - other.y,
@@ -68,7 +90,7 @@ impl ops::SubAssign for Vec3 {
 impl ops::Mul for Vec3 {
     type Output = Self;
 
-    fn mul(self, other: Self) -> Self {
+    fn mul(self, other: Self) -> Self::Output {
         Self::new(
             self.x * other.x,
             self.y * other.y,
@@ -80,7 +102,7 @@ impl ops::Mul for Vec3 {
 impl ops::Mul<f64> for Vec3 {
     type Output = Self;
 
-    fn mul(self, other: f64) -> Self {
+    fn mul(self, other: f64) -> Self::Output {
         Self::new(
             self.x * other,
             self.y * other,
@@ -94,6 +116,14 @@ impl ops::Mul<Vec3> for f64 {
 
     fn mul(self, other: Self::Output) -> Self::Output {
         other * self
+    }
+}
+
+impl ops::Div<f64> for Vec3 {
+    type Output = Self;
+
+    fn div(self, other: f64) -> Self::Output {
+        (1.0/other) * self
     }
 }
 
