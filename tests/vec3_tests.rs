@@ -1,6 +1,15 @@
 use raytracer::Vec3;
 
 #[test]
+fn vec3_new() {
+    let vec = Vec3::new(1.0, 2.0, 3.0);
+
+    assert_eq!(vec.x, 1.0);
+    assert_eq!(vec.y, 2.0);
+    assert_eq!(vec.z, 3.0);
+}
+
+#[test]
 fn vec3_eq() {
     let vec_a = Vec3::new(1.0, 2.0, 3.0);
     let vec_b = Vec3::new(1.0, 2.0, 3.0);

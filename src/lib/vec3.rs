@@ -10,6 +10,10 @@ impl Vec3 {
         Self { x: x, y: y, z: z }
     }
 
+    pub fn null() -> Self {
+        Self::new(0.0, 0.0, 0.0)
+    }
+
     pub fn length(&self) -> f64 {
         self.length_squared().sqrt()
     }
