@@ -1,22 +1,29 @@
 use raytracer::*;
 
-fn hit_sphere(center: &Point3, rad: f64, r: &Ray) -> bool {
+fn hit_sphere(center: &Point3, rad: f64, r: &Ray) -> f64 {
     let oc: Vec3 = r.origin - *center;
 
     // woooooo quadratic formula
-    let a = Vec3::dot(r.direction, r.direction);
-    let b = 2.0 * Vec3::dot(oc, r.direction);
+    let a = r.direction.length_squared();
+    let half_b = Vec3::dot(oc, r.direction);
     let c = Vec3::dot(oc, oc) - rad * rad;
 
     // woooooo quadratic formula again
-    let discriminant = b * b - 4.0 * a * c;
+    let discriminant = half_b * half_b - a * c;
 
-    discriminant > 0.0
+    if discriminant < 0.0 {
+        -1.0
+    } else {
+        (-half_b - discriminant.sqrt()) / a
+    }
 }
 
 fn ray_color(r: &Ray) -> Color {
-    if hit_sphere(&Point3::new(0.0, 0.0, -1.0), 0.5, r) {
-        return Color::new(1.0, 0.0, 0.0);
+    let t = hit_sphere(&Point3::new(0.0, 0.0, -1.0), 0.5, r);
+    
+    if t > 0.0 {
+        let n = (r.at(t) - Vec3::new(0.0, 0.0, -1.0)).normalized();
+        return 0.5 * Color::new(n.x+1.0, n.y+1.0, n.z+1.0);
     }
 
     let unit_direction = r.direction.normalized();
