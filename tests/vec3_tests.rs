@@ -1,7 +1,7 @@
 use raytracer::Vec3;
 
 #[test]
-fn test_vec3_eq() {
+fn vec3_eq() {
     let vec_a = Vec3::new(1.0, 2.0, 3.0);
     let vec_b = Vec3::new(1.0, 2.0, 3.0);
 
@@ -9,7 +9,7 @@ fn test_vec3_eq() {
 }
 
 #[test]
-fn test_vec3_add() {
+fn vec3_add() {
     let vec_a = Vec3::new(1.0, 2.0, 3.0);
     let vec_b = Vec3::new(3.0, 2.0, 1.0);
 
@@ -19,7 +19,7 @@ fn test_vec3_add() {
 }
 
 #[test]
-fn test_vec3_add_assign() {
+fn vec3_add_assign() {
     let mut vec_a = Vec3::new(1.0, 2.0, 3.0);
     let vec_b = Vec3::new(3.0, 2.0, 1.0);
 
@@ -31,7 +31,7 @@ fn test_vec3_add_assign() {
 }
 
 #[test]
-fn test_vec3_sub() {
+fn vec3_sub() {
     let vec_a = Vec3::new(1.0, 2.0, 3.0);
     let vec_b = Vec3::new(3.0, 2.0, 1.0);
 
@@ -41,7 +41,7 @@ fn test_vec3_sub() {
 }
 
 #[test]
-fn test_vec3_sub_assign() {
+fn vec3_sub_assign() {
     let mut vec_a = Vec3::new(1.0, 2.0, 3.0);
     let vec_b = Vec3::new(3.0, 2.0, 1.0);
 
@@ -53,7 +53,7 @@ fn test_vec3_sub_assign() {
 }
 
 #[test]
-fn test_vec3_mul_vec3() {
+fn vec3_mul_vec3() {
     let vec_a = Vec3::new(1.0, 2.0, 3.0);
     let vec_b = Vec3::new(3.0, 2.0, 1.0);
 
@@ -63,7 +63,7 @@ fn test_vec3_mul_vec3() {
 }
 
 #[test]
-fn test_vec3_mul_f64() {
+fn vec3_mul_f64() {
     let vec_a = Vec3::new(1.0, 2.0, 3.0);
     let scalar: f64 = 3.0;
 
@@ -75,7 +75,7 @@ fn test_vec3_mul_f64() {
 }
 
 #[test]
-fn test_vec3_div_f64() {
+fn vec3_div_f64() {
     let vec = Vec3::new(1.0, 2.0, 3.0);
     let scalar: f64 = 2.0;
 
@@ -85,7 +85,7 @@ fn test_vec3_div_f64() {
 }
 
 #[test]
-fn test_vec3_length_squared() {
+fn vec3_length_squared() {
     let unit_vec = Vec3::new(1.0, 0.0, 0.0);
     let vec = Vec3::new(0.0, 4.0, 3.0);
 
@@ -94,7 +94,7 @@ fn test_vec3_length_squared() {
 }
 
 #[test]
-fn test_vec3_length() {
+fn vec3_length() {
     let unit_vec = Vec3::new(1.0, 0.0, 0.0);
     let vec = Vec3::new(0.0, 4.0, 3.0);
 
@@ -103,7 +103,7 @@ fn test_vec3_length() {
 }
 
 #[test]
-fn test_vec3_neg() {
+fn vec3_neg() {
     let vec = Vec3::new(1.0, 2.0, 3.0);
     
     let vec_sol = Vec3::new(-1.0, -2.0, -3.0);
@@ -112,7 +112,7 @@ fn test_vec3_neg() {
 }
 
 #[test]
-fn test_vec3_cross() {
+fn vec3_cross() {
     let vec_a = Vec3::new(1.0, 2.0, 3.0);
     let vec_b = Vec3::new(3.0, 2.0, 1.0);
 
@@ -123,7 +123,7 @@ fn test_vec3_cross() {
 }
 
 #[test]
-fn test_vec3_dot() {
+fn vec3_dot() {
     let vec_a = Vec3::new(1.0, 2.0, 3.0);
     let vec_b = Vec3::new(3.0, 2.0, 1.0);
 
