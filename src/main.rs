@@ -1,5 +1,5 @@
-use raytracer::*;
 use raytracer::shapes::Sphere;
+use raytracer::*;
 
 fn hit_sphere(center: &Point3, rad: f64, r: &Ray) -> f64 {
     let oc: Vec3 = r.origin - *center;
@@ -43,8 +43,8 @@ fn main() {
     // World
 
     let mut world = HittableList::new();
-    world.add(Sphere::new_boxxed(Point3::new(0.0,0.0,-1.0), 0.5));
-    world.add(Sphere::new_boxxed(Point3::new(0.0,-100.5,-1.0), 100.0));
+    world.add(Sphere::new_boxxed(Point3::new(0.0, 0.0, -1.0), 0.5));
+    world.add(Sphere::new_boxxed(Point3::new(0.0, -100.5, -1.0), 100.0));
 
     // Camera
 

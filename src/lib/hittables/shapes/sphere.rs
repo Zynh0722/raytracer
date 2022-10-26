@@ -10,10 +10,7 @@ pub struct Sphere {
 
 impl Sphere {
     pub fn new(center: Point3, radius: f64) -> Self {
-        Self {
-            center,
-            radius,
-        }
+        Self { center, radius }
     }
 
     pub fn new_boxxed(center: Point3, radius: f64) -> Box<Sphere> {
