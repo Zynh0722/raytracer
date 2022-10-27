@@ -33,3 +33,9 @@ impl HitRecord {
 pub trait Hittable {
     fn hit(&self, r: &Ray, t_min: f64, t_max: f64, rec: &mut HitRecord) -> bool;
 }
+
+impl std::fmt::Debug for dyn Hittable {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+        write!(f, "<Hittable>")
+    }
+}

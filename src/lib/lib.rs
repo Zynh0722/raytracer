@@ -1,9 +1,11 @@
+mod camera;
 mod color;
 mod hittables;
 mod ray;
 mod utils;
 mod vec3;
 
+pub use camera::Camera;
 pub use color::Color;
 pub use hittables::*;
 pub use ray::Ray;
