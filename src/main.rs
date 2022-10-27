@@ -62,4 +62,8 @@ fn main() {
     }
 
     eprintln!("\nDone.");
+
+    for _ in 0..100 {
+        eprintln!("{}", random_double());
+    }
 }
