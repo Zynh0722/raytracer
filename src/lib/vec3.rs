@@ -1,3 +1,6 @@
+use rand::rngs::SmallRng;
+use rand::Rng;
+
 #[derive(Debug, Clone, Copy, PartialEq)]
 pub struct Vec3 {
     pub x: f64,
@@ -8,6 +11,32 @@ pub struct Vec3 {
 impl Vec3 {
     pub fn new(x: f64, y: f64, z: f64) -> Self {
         Self { x: x, y: y, z: z }
+    }
+
+    pub fn random(rng: &mut SmallRng) -> Self {
+        Self {
+            x: rng.gen::<f64>(),
+            y: rng.gen::<f64>(),
+            z: rng.gen::<f64>(),
+        }
+    }
+
+    pub fn random_range(min: f64, max: f64, rng: &mut SmallRng) -> Self {
+        Self {
+            x: min + (max - min) * rng.gen::<f64>(),
+            y: min + (max - min) * rng.gen::<f64>(),
+            z: min + (max - min) * rng.gen::<f64>(),
+        }
+    }
+
+    pub fn random_in_unit_sphere(rng: &mut SmallRng) -> Self {
+        loop {
+            let p = Self::random_range(-1.0, 1.0, rng);
+
+            if p.length_squared() < 1.0 {
+                break p;
+            }
+        }
     }
 
     pub fn null() -> Self {

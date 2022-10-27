@@ -12,9 +12,9 @@ impl Color {
 
         println!(
             "{} {} {}",
-            (255.999 * r.clamp(0.0, 0.999)) as u8,
-            (255.999 * g.clamp(0.0, 0.999)) as u8,
-            (255.999 * b.clamp(0.0, 0.999)) as u8,
+            (255.999 * r.sqrt().clamp(0.0, 0.999)) as u8,
+            (255.999 * g.sqrt().clamp(0.0, 0.999)) as u8,
+            (255.999 * b.sqrt().clamp(0.0, 0.999)) as u8,
         );
     }
 }
